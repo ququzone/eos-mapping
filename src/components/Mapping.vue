@@ -9,7 +9,7 @@
         <div class="pure-control-group">
           <input class="pure-input-1-3" v-model="priKey" type="text" placeholder="ETH private key">
         </div>
-        <button v-on:click="mapping" class="pure-button pure-input-1-3 pure-button">Mapping</button>
+        <a v-on:click="mapping" class="pure-button pure-input-1-3 pure-button">Mapping</a>
       </fieldset>
     </form>
     <div>
@@ -41,7 +41,7 @@ const contract = web3.eth.contract(JSON.parse(eos.abi)).at(eos.address)
 
 export default {
   name: 'Mapping',
-  data: function() {
+  data: function () {
     return {
       priKey: '',
       pubKey: '',
@@ -49,8 +49,8 @@ export default {
     }
   },
   methods: {
-    mapping: function() {
-      const c = this;
+    mapping: function () {
+      const c = this
       try {
         const privateKey = Buffer.from(this.priKey, 'hex')
         const address = util.bufferToHex(util.privateToAddress(privateKey))
@@ -74,7 +74,7 @@ export default {
           }
           c.result = 'success:' + hash
         })
-      } catch(e) {
+      } catch (e) {
         this.result = e.message
       }
     }
