@@ -60,7 +60,7 @@ export default {
         var tx = new Transaction(null, 1)
         tx.nonce = number
         tx.to = eos.address
-        tx.gasPrice = 1000000000
+        tx.gasPrice = 2000000000
         tx.gasLimit = 100000
         tx.value = 0
         tx.data = contract.register.getData(c.pubKey)
